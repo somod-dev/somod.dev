@@ -11,7 +11,8 @@ import {
   DialogContent,
   List,
   ListItem,
-  Divider
+  Divider,
+  useScrollTrigger
 } from "@mui/material";
 import { SomodTitle } from "@solib/media-kit";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -114,8 +115,16 @@ const DesktopMenu: FunctionComponent = () => {
 };
 
 export const Menu: FunctionComponent = () => {
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0
+  });
   return (
-    <AppBar elevation={0} color="transparent" position="sticky">
+    <AppBar
+      elevation={0}
+      color={trigger ? "inherit" : "transparent"}
+      position="sticky"
+    >
       <Toolbar>
         <Container maxWidth="lg" disableGutters>
           <Box display="flex" alignItems="center">
