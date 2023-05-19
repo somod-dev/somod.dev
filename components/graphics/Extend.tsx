@@ -1,6 +1,8 @@
-import { FunctionComponent, SVGProps, ReactSVGElement } from "react";
+import { FunctionComponent } from "react";
 
-export const Extend: FunctionComponent<SVGProps<ReactSVGElement>> = props => {
+export const Extend: FunctionComponent<
+  JSX.IntrinsicElements["svg"]
+> = props => {
   return (
     <svg
       viewBox="0 0 135.46666 135.46667"

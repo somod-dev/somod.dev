@@ -1,7 +1,7 @@
-import { FunctionComponent, SVGProps, ReactSVGElement } from "react";
+import { FunctionComponent } from "react";
 
 export const RocketIcon: FunctionComponent<
-  SVGProps<ReactSVGElement>
+  JSX.IntrinsicElements["svg"]
 > = props => (
   <svg viewBox="0 0 135.46666 135.46667" {...props}>
     <path
