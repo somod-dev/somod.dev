@@ -8,7 +8,7 @@ import {
   Button,
   styled
 } from "@mui/material";
-import { RocketIcon } from "./RocketIcon";
+import { RocketIcon } from "./graphics/RocketIcon";
 import CopyIcon from "@mui/icons-material/ContentCopy";
 
 const CodeButton = styled(Button)({
@@ -73,7 +73,6 @@ export const Slide1: FunctionComponent = () => {
                 size="large"
                 endIcon={<CopyIcon />}
                 onClick={() => {
-                  // @ts-expect-error navigator will be available when clicked
                   navigator.clipboard.writeText("npx create-somod");
                 }}
               >

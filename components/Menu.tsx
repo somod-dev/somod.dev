@@ -29,7 +29,7 @@ const menu: { link: string; label?: string; icon?: ReactElement }[] = [
     label: "Docs"
   },
   {
-    link: "https://dev.to/t/somod",
+    link: "https://dev.to/t/somod/latest",
     label: "Blog"
   },
   {

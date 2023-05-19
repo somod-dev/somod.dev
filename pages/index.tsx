@@ -3,6 +3,8 @@ import { Meta } from "../components/Meta";
 import { Menu } from "../components/Menu";
 import { Slide1 } from "../components/Slide1";
 import { Slide2 } from "../components/Slide2";
+import { Slide3 } from "../components/Slide3";
+import { Footer } from "../components/Footer";
 
 const Index: FunctionComponent = () => {
   const title = "SOMOD | Serverless Optimized Modules";
@@ -15,6 +17,8 @@ const Index: FunctionComponent = () => {
       <Menu />
       <Slide1 />
       <Slide2 />
+      <Slide3 />
+      <Footer />
     </>
   );
 };
