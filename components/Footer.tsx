@@ -10,6 +10,12 @@ import {
 } from "@mui/material";
 import { SomodTitle, SodaruTitle } from "@solib/media-kit";
 import { CookiePreference } from "mui-extended";
+import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import ForumIcon from "@mui/icons-material/Forum";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import { NpmIcon } from "./graphics/NpmIcon";
 
 export const Footer = () => {
   return (
@@ -32,12 +38,23 @@ export const Footer = () => {
               <Typography variant="subtitle2" pb={1}>
                 Links
               </Typography>
-              <Link href="https://docs.somod.dev/gettting-started">Learn</Link>
-              <Link href="https://docs.somod.dev/reference">Reference</Link>
-              <Link href="https://dev.to/t/somod/latest">Blog</Link>
-              <Link href="https://github.com/somod-dev">Source Code</Link>
+              <Link href="https://docs.somod.dev/gettting-started">
+                <LocalLibraryIcon /> Learn
+              </Link>
+              <Link href="https://docs.somod.dev/reference">
+                <MenuBookIcon /> Reference
+              </Link>
+              <Link href="https://dev.to/t/somod/latest">
+                <ForumIcon /> Blog
+              </Link>
+              <Link href="https://github.com/somod-dev">
+                <GitHubIcon /> Source Code
+              </Link>
               <Link href="https://www.npmjs.com/package/somod">
-                NPM Package
+                <NpmIcon /> NPM Package
+              </Link>
+              <Link href="https://twitter.com/somoddev">
+                <TwitterIcon /> Twitter
               </Link>
             </Stack>
           </Grid>
