@@ -1,6 +1,6 @@
 {
   "name": "somod.dev",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Website for somod.dev",
   "main": "index.js",
   "scripts": {
