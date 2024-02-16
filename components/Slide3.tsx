@@ -3,13 +3,21 @@ import { FunctionComponent } from "react";
 import { Extend } from "./graphics/Extend";
 import { Compose } from "./graphics/Compose";
 import { Reuse } from "./graphics/Reuse";
+import { AnimatedImageL, AnimatedImageR, AnimatedImageM } from "./Animations";
+import ScrollAnimation from "./Animations/ScrollAn";
+
+
 export const Slide3: FunctionComponent = () => {
   return (
     <Container maxWidth="lg">
       <Grid container alignItems="center" justifyContent="center">
         <Grid item xs={12} sm={6} md={4}>
           <Box px={10} py={2}>
-            <Extend />
+          <ScrollAnimation>
+          <AnimatedImageL>
+          <Extend />
+          </AnimatedImageL>
+          </ScrollAnimation>
           </Box>
           <Typography variant="h4" textAlign="center">
             Extend
@@ -20,8 +28,12 @@ export const Slide3: FunctionComponent = () => {
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <Box px={10} py={2}>
-            <Compose />
-          </Box>
+          <ScrollAnimation>
+          <AnimatedImageM>
+          <Compose />
+          </AnimatedImageM>
+          </ScrollAnimation>
+             </Box>
           <Typography variant="h4" textAlign="center">
             Compose
           </Typography>
@@ -31,7 +43,11 @@ export const Slide3: FunctionComponent = () => {
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <Box px={10} py={2}>
-            <Reuse />
+          <ScrollAnimation>
+          <AnimatedImageR>
+          <Reuse />
+          </AnimatedImageR>
+          </ScrollAnimation>
           </Box>
           <Typography variant="h4" textAlign="center">
             Reuse
