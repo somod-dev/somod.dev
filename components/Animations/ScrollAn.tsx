@@ -7,7 +7,7 @@ const ScrollAnimation = ({ children }) => {
   useEffect(() => {
     const handleScroll = () => {
       const position = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-      (position > 0.65 && position < 0.75)?setScrollPosition(1):setScrollPosition(position);
+      (position > 0.63 && position < 0.7)?setScrollPosition(1):setScrollPosition(position);
     };
 
     window.addEventListener('scroll', handleScroll);

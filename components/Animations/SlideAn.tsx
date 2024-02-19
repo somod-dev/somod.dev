@@ -4,7 +4,7 @@ import { useSpring, animated, config } from 'react-spring';
 const Slide1Animation = ({ children })  => {
   const fadeAnimation = useSpring({
     from: { opacity: 0 },
-    to: { opacity: 1 },
+    to: { opacity: 1.5 },
     config: config.molasses,
     delay: 350
   });
@@ -13,7 +13,7 @@ const Slide1Animation = ({ children })  => {
     from: { scale: 0.1},
     to: { scale: 1 },
     config: config.molasses,
-    delay: 200
+    delay: 350
   });
 
   return (

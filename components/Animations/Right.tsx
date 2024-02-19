@@ -1,53 +1,30 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { useSpring, animated, config } from 'react-spring';
+import React, { useState, useEffect } from 'react';
+import { useSpring, animated } from 'react-spring';
 
-const AnimatedImage = ({ children }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const childrenRef = useRef(null);
-
-  const { x, opacity } = useSpring({
-    from: { x: 100, opacity: 0 },
-    to: async (next) => {
-      await next({ x: 0, opacity: 1 });
-    },
-    config: config.molasses,
-    reset: true,
-    immediate: !isVisible, 
-  });
+const ScrollAnimation = ({ children }) => {
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const top = childrenRef.current?.getBoundingClientRect().top;
-      const bottom = childrenRef.current?.getBoundingClientRect().bottom;
-      const height = window.innerHeight;
-      const threshold = 0.8;
-
-      if (
-        (top && top < height * threshold && bottom > 0) || 
-        (bottom && bottom > height * (1 - threshold) && top < height) 
-      ) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      const position = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+      setScrollPosition(position);
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
+  const spring = useSpring({
+    transform: `translateX(${(scrollPosition * -80)+76}%)`,
+  });
+
   return (
-    <animated.div
-      ref={childrenRef}
-      style={{
-        transform: x.interpolate((x) => `translateX(${x}%)`), // Translate horizontally
-        opacity: opacity.interpolate((o) => o),
-      }}
-    >
+    <animated.div style={spring}>
       {children}
     </animated.div>
   );
 };
 
-export default AnimatedImage;
+export default ScrollAnimation;

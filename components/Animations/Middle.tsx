@@ -1,34 +1,14 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useSpring, animated, config } from 'react-spring';
+import { useSpring, animated } from 'react-spring';
 
 const AnimatedImage = ({ children }) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
   const childrenRef = useRef(null);
-
-  const { scale, opacity } = useSpring({
-    scale: isVisible ? 1 : 0.8,
-    opacity: isVisible ? 1 : 0,
-    config: config.molasses,
-    reset: true,
-    immediate: !isVisible,
-  });
 
   useEffect(() => {
     const handleScroll = () => {
-      const top = childrenRef.current?.getBoundingClientRect().top;
-      const bottom = childrenRef.current?.getBoundingClientRect().bottom;
-      const height = window.innerHeight;
-
-      const threshold = 0.9;
-
-      if (
-        (top && top < height * threshold && bottom > 0) ||
-        (bottom && bottom > height * (1 - threshold) && top < height)
-      ) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      const position = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+      setScrollPosition(position);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -36,12 +16,18 @@ const AnimatedImage = ({ children }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const { scale, opacity } = useSpring({
+    scale: scrollPosition,
+    opacity: scrollPosition*2,
+    config: { tension: 120, friction: 22, precision: 0.001 },
+  });
+
   return (
     <animated.div
       ref={childrenRef}
       style={{
-        transform: scale.interpolate((s) => `scale(${s})`),
-        opacity: opacity.interpolate((o) => o),
+        transform: scale.interpolate(s => `scale(${s * 0.5 + 0.55})`),
+        opacity:opacity,
       }}
     >
       {children}
