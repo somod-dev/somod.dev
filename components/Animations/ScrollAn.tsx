@@ -23,7 +23,7 @@ const ScrollAnimation = ({ children }) => {
 
   const leftSpring = useSpring({
     marginLeft: scrollPosition *-15 + 'px',
-    from: { marginLeft: '0px' },
+    from: { marginLeft: '1px' },
   });
   
   return (

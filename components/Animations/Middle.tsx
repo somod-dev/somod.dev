@@ -26,7 +26,7 @@ const AnimatedImage = ({ children }) => {
     <animated.div
       ref={childrenRef}
       style={{
-        transform: scale.interpolate(s => `scale(${s * 0.5 + 0.55})`),
+        transform: scale.interpolate(s => `scale(${s * 0.5 + 0.54})`),
         opacity:opacity,
       }}
     >

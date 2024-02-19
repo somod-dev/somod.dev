@@ -17,7 +17,7 @@ const ScrollAnimation = ({ children }) => {
   }, []);
 
   const spring = useSpring({
-    transform: `translateX(${(scrollPosition * 80)-80}%)`,
+    transform: `translateX(${(scrollPosition * 79)-80}%)`,
     from:{ transform: 'translateX(0%)' },
   });
 

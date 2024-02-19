@@ -6,14 +6,14 @@ const Slide1Animation = ({ children })  => {
     from: { opacity: 0 },
     to: { opacity: 1.5 },
     config: config.molasses,
-    delay: 350
+    delay: 360
   });
 
   const scaleAnimation = useSpring({
     from: { scale: 0.1},
     to: { scale: 1 },
     config: config.molasses,
-    delay: 350
+    delay: 360
   });
 
   return (
